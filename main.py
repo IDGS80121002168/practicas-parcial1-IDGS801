@@ -78,5 +78,29 @@ def distancia():
 
     return render_template("distancia.html", form=distancia_clase, distancia=distancia, x1=x1, y1=y1, x2=x2, y2=y2)
 
+
+
+@app.route("/resistencia", methods=['GET', 'POST'])
+def resistencia():
+    resistencia_clase = forms.ResistenciaForm(request.form)
+    primerBanda, segundaBanda, terceraBanda, tolerancia,valor,valorMax,valorMin = 0, 0, 0, 0,0,0,0
+
+    if request.method == 'POST':
+        primerBanda = resistencia_clase.primerBanda.data
+        segundaBanda = resistencia_clase.segundaBanda.data
+        terceraBanda = resistencia_clase.terceraBanda.data
+        tolerancia = resistencia_clase.tolerancia.data
+        valor = resistencia_clase.valor.data
+        valorMin = resistencia_clase.valorMin.data
+        valorMax = resistencia_clase.valorMax.data
+        
+        valor = int(str(primerBanda) + str(segundaBanda)) * terceraBanda
+        if tolerancia == "Dorado":
+            valorMax = valor + (valor * 0.05)
+            valorMin = valor - (valor * 0.05)
+        elif tolerancia == "Plata":
+            valorMax = valor + (valor * 0.1)
+            valorMin = valor - (valor * 0.1)
+    return render_template("resistencia.html", form=resistencia_clase, valor=valor, primerBanda=primerBanda, segundaBanda=segundaBanda, terceraBanda=terceraBanda, tolerancia=tolerancia, valorMin=valorMin, valorMax=valorMax)
 if __name__ == "__main__":
     app.run(debug=True)

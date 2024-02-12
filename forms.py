@@ -9,3 +9,11 @@ class UserForm(Form):
     x2= IntegerField('x2')
     y2= IntegerField('y2')
     distancia= IntegerField('distancia')
+class ResistenciaForm(Form):
+    primerBanda= IntegerField('primerBanda')
+    segundaBanda= IntegerField('segundaBanda')
+    terceraBanda= IntegerField('terceraBanda')
+    tolerancia= StringField('tolerancia')
+    valor= IntegerField('valor')
+    valorMax= IntegerField('valorMax')
+    valorMin= IntegerField('valorMin')

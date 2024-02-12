@@ -1,0 +1,223 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% import "_macros2.html" as macros2 %}
+    <div class="resistencia">
+        <form class="resistencia-contenido" method="POST">
+            <div class="resistencia-contenido-selects">
+                <div class="resistencia-contenido-selects-select">
+                    <div class="input">
+                        <label for="">Primera banda</label>
+                        <select name="primerBanda" id="primerBanda">
+                            <option value="">Selecciona una opcion</option>
+                            <option value="0">negro</option>
+                            <option value="1">cafe</option>
+                            <option value="2">rojo</option>
+                            <option value="3">naranja</option>
+                            <option value="4">amarillo</option>
+                            <option value="5">verde</option>
+                            <option value="6">azul</option>
+                            <option value="7">violeta</option>
+                            <option value="8">gris</option>
+                            <option value="9">blanco</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="resistencia-contenido-selects-select">
+                    <div class="input">
+                        <label for="">Segunda banda</label>
+                        <select name="segundaBanda" id="segundaBanda">
+                            <option value="">Selecciona una opcion</option>
+                            <option value="0">negro</option>
+                            <option value="1">cafe</option>
+                            <option value="2">rojo</option>
+                            <option value="3">naranja</option>
+                            <option value="4">amarillo</option>
+                            <option value="5">verde</option>
+                            <option value="6">azul</option>
+                            <option value="7">violeta</option>
+                            <option value="8">gris</option>
+                            <option value="9">blanco</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="resistencia-contenido-selects-select">
+                    <div class="input">
+                        <label for="">Tercera banda</label>
+                        <select name="terceraBanda" id="terceraBanda">
+                            <option value="">Selecciona una opcion</option>
+                            <option value="1">negro</option>
+                            <option value="10">cafe</option>
+                            <option value="100">rojo</option>
+                            <option value="1000">naranja</option>
+                            <option value="10000">amarillo</option>
+                            <option value="100000">verde</option>
+                            <option value="1000000">azul</option>
+                            <option value="10000000">violeta</option>
+                            <option value="100000000">gris</option>
+                            <option value="1000000000">blanco</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="resistencia-contenido-radio">
+                <p style="margin: 0;">Tolerancia</p>
+                <div class="input" style="display: flex; align-items: center;">
+                    <input type="radio" name="tolerancia" value="Dorado" id="tolerancia">
+                    <label for="">Dorado</label>
+                </div>
+                <div class="input" style="display: flex; align-items: center;">
+                    <input type="radio" name="tolerancia" value="Plata" id="tolerancia">
+                    <label for="">Plata</label>
+                </div>
+            </div>
+            <div class="resistencia-cotenido-boton">
+                <button>Guardar</button>
+            </div>
+        </form>
+        
+        <div class="resistencia-tabla">
+            <table>
+                <thead>
+                    <th>COLOR 1</th>
+                    <th>COLOR 2</th>
+                    <th>COLOR 3</th>
+                    <th>Tolerancia</th>
+                    <th>Valor</th>
+                    <th>Valor maximo</th>
+                    <th>Valor minimo</th>
+                </thead>
+                <tbody>
+                    <td class="{% if primerBanda == 0 %}negro{% endif %}
+                    {% if primerBanda == 1 %}cafe{% endif %}
+                    {% if primerBanda == 2 %}rojo{% endif %}
+                    {% if primerBanda == 3 %}naranja{% endif %}
+                    {% if primerBanda == 4 %}amarillo{% endif %}
+                    {% if primerBanda == 5 %}verde{% endif %}
+                    {% if primerBanda == 6 %}azul{% endif %}
+                    {% if primerBanda == 7 %}violeta{% endif %}
+                    {% if primerBanda == 8 %}gris{% endif %}
+                    {% if primerBanda == 9 %}blanco{% endif %}">
+                        {% if primerBanda == 0  %}
+                            Negro
+                        {% endif %}
+                        {% if primerBanda == 1  %}
+                            Cafe
+                        {% endif %}
+                        {% if primerBanda == 2  %}
+                            Rojo
+                        {% endif %}
+                        {% if primerBanda == 3  %}
+                            Naranja
+                        {% endif %}
+                        {% if primerBanda == 4  %}
+                            Amarillo
+                        {% endif %}
+                        {% if primerBanda == 5  %}
+                            Verde
+                        {% endif %}
+                        {% if primerBanda == 6  %}
+                            Azul
+                        {% endif %}
+                        {% if primerBanda == 7  %}
+                            Violeta
+                        {% endif %}
+                        {% if primerBanda == 8  %}
+                            Gris
+                        {% endif %}
+                        {% if primerBanda == 9  %}
+                            Blanco
+                        {% endif %}
+                    </td>
+                    <td class="{% if segundaBanda == 0 %}negro{% endif %}
+                    {% if segundaBanda == 1 %}cafe{% endif %}
+                    {% if segundaBanda == 2 %}rojo{% endif %}
+                    {% if segundaBanda == 3 %}naranja{% endif %}
+                    {% if segundaBanda == 4 %}amarillo{% endif %}
+                    {% if segundaBanda == 5 %}verde{% endif %}
+                    {% if segundaBanda == 6 %}azul{% endif %}
+                    {% if segundaBanda == 7 %}violeta{% endif %}
+                    {% if segundaBanda == 8 %}gris{% endif %}
+                    {% if segundaBanda == 9 %}blanco{% endif %}">
+                         {% if segundaBanda == 0  %}
+                            Negro
+                        {% endif %}
+                        {% if segundaBanda == 1  %}
+                            Cafe
+                        {% endif %}
+                        {% if segundaBanda == 2  %}
+                            Rojo
+                        {% endif %}
+                        {% if segundaBanda == 3  %}
+                            Naranja
+                        {% endif %}
+                        {% if segundaBanda == 4  %}
+                            Amarillo
+                        {% endif %}
+                        {% if segundaBanda == 5  %}
+                            Verde
+                        {% endif %}
+                        {% if segundaBanda == 6  %}
+                            Azul
+                        {% endif %}
+                        {% if segundaBanda == 7  %}
+                            Violeta
+                        {% endif %}
+                        {% if segundaBanda == 8  %}
+                            Gris
+                        {% endif %}
+                        {% if segundaBanda == 9  %}
+                            Blanco
+                        {% endif %}
+                    </td>
+                    <td class="{% if terceraBanda == 1 %}negro{% endif %}
+                    {% if terceraBanda == 10 %}cafe{% endif %}
+                    {% if terceraBanda == 100 %}rojo{% endif %}
+                    {% if terceraBanda == 1000 %}naranja{% endif %}
+                    {% if terceraBanda == 10000 %}amarillo{% endif %}
+                    {% if terceraBanda == 100000 %}verde{% endif %}
+                    {% if terceraBanda == 1000000 %}azul{% endif %}
+                    {% if terceraBanda == 10000000 %}violeta{% endif %}
+                    {% if terceraBanda == 100000000 %}gris{% endif %}
+                    {% if terceraBanda == 1000000000 %}blanco{% endif %}">
+                        {% if terceraBanda == 1  %}
+                            Negro
+                        {% endif %}
+                        {% if terceraBanda == 10 %}
+                            Cafe
+                        {% endif %}
+                        {% if terceraBanda == 100 %}
+                            Rojo
+                        {% endif %}
+                        {% if terceraBanda == 1000 %}
+                            Naranja
+                        {% endif %}
+                        {% if terceraBanda == 10000 %}
+                            Amarillo
+                        {% endif %}
+                        {% if terceraBanda == 100000 %}
+                            Verde
+                        {% endif %}
+                        {% if terceraBanda == 1000000 %}
+                            Azul
+                        {% endif %}
+                        {% if terceraBanda == 10000000 %}
+                            Violeta
+                        {% endif %}
+                        {% if terceraBanda == 100000000 %}
+                            Gris
+                        {% endif %}
+                        {% if terceraBanda == 1000000000%}
+                            Blanco
+                        {% endif %}
+                    </td>
+                    <td class="{% if tolerancia == "Dorado" %}dorado{% endif %}
+                    {% if tolerancia == "Plata" %}plata{% endif %}">{{ tolerancia }}</td>
+                    <td>{{ valor }}</td>
+                    <td>{{ valorMax }}</td>
+                    <td>{{ valorMin }}</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{%endblock%}
