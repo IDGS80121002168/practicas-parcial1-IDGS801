@@ -1,0 +1,8 @@
+red
+rojo
+green
+verde
+hello
+hola
+purple
+morado

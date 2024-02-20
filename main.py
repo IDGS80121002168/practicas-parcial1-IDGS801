@@ -102,5 +102,36 @@ def resistencia():
             valorMax = valor + (valor * 0.1)
             valorMin = valor - (valor * 0.1)
     return render_template("resistencia.html", form=resistencia_clase, valor=valor, primerBanda=primerBanda, segundaBanda=segundaBanda, terceraBanda=terceraBanda, tolerancia=tolerancia, valorMin=valorMin, valorMax=valorMax)
+
+
+@app.route("/arch", methods=['GET', 'POST'])
+def archivo():
+    resultado = None  
+    if request.method == 'POST':
+        if 'action' in request.form:
+            if request.form['action'] == 'guardar':
+                ingles = request.form['ingles']
+                esp = request.form['esp']
+                
+                with open('idiomas.txt', 'a') as archivo:
+                    archivo.write(f"{ingles}\n{esp}\n")
+
+            elif request.form['action'] == 'buscar':
+                buscar = request.form['buscar']
+                idioma = request.form['idioma']
+                
+                with open('idiomas.txt', 'r') as archivo:
+                    palabras = archivo.read().splitlines()
+                    indice = palabras.index(buscar) if buscar in palabras else None
+                    if indice is not None:
+                        if idioma == 'ingles':  
+                            resultado = f"La palabra en inglés es '{palabras[indice - 1]}'"
+                        else:  
+                            resultado = f"La palabra en español es '{palabras[indice + 1]}'"
+                    else:
+                        resultado = f"No se encontró la traducción para '{buscar}'"
+                        
+    return render_template("textoArchivo.html", resultado=resultado)
+
 if __name__ == "__main__":
     app.run(debug=True)
